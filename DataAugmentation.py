@@ -21,7 +21,7 @@ def RandomPadandCrop(x):
 
 def RandomFlip(x):
     if np.random.rand() < 0.5:
-        x = x[:, :, ::-1]
-
+        x = x[:, ::-1, :]
+    
     return x.copy()
 

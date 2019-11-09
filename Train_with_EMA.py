@@ -26,7 +26,7 @@ logits_op, predictions_op = WideResNet(input_var, is_training, reuse = False)
 
 train_vars = tf.get_collection('trainable_variables', 'Wider-ResNet-28')
 
-ema = tf.train.ExponentialMovingAverage(decay=0.998)
+ema = tf.train.ExponentialMovingAverage(decay = 0.998)
 ema_op = ema.apply(train_vars)
 
 _, ema_predictions_op = WideResNet(input_var, is_training, reuse = True, getter = get_getter(ema))
@@ -75,7 +75,7 @@ train_time = time.time()
 for iter in range(1, MAX_ITERATION + 1):
     if iter in DECAY_ITERATIONS:
         learning_rate /= 10.
-
+    
     np.random.shuffle(train_data_list)
     batch_data_list = train_data_list[:BATCH_SIZE]
     
